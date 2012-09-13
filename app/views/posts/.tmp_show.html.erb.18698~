@@ -1,0 +1,51 @@
+
+
+<p>
+  <b>Nick:</b>
+  <%=h @post.nick %>
+</p>
+
+<p>
+  <b>Tytul:</b>
+  <%=h @post.tytul %>
+</p>
+
+<p>
+  <b>Tresc:</b>
+  <%=h @post.tresc %>
+</p>
+
+
+<h2>Komentarze</h2>
+
+<% @post.comments.each do |c| %>
+	<p>
+		<b><%=h c.nick %> powiedział: </b><br>
+		<%= time_ago_in_words(c.created_at) %> temu
+	</p>
+	
+	<p>
+		<%= h c.tresc %>
+	</p>
+
+<% end %>
+
+<h3>Dodaj swój komentarz</h3>
+
+<% form_for [@post, Comment.new] do |f| %>
+	<p>
+		<%= f.label :nick, "Autor komentarza" %> <br />
+		<%= f.text_field :nick %><br />
+		<%= f.label :tresc, "Treść komentarza" %><br />
+		<%= f.text_area :tresc %>
+	</p>
+	
+	<p>
+		<%= f.submit "Dodaj komentarz" %>
+	</p>
+<% end %>
+	
+
+
+<%= link_to 'Edytuj', edit_post_path(@post) %> |
+<%= link_to 'Powrót', posts_path %>

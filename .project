@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>netguru</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.rubypeople.rdt.core.rubybuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.aptana.ide.project.nature.web</nature>
+		<nature>org.rubypeople.rdt.core.rubynature</nature>
+		<nature>org.radrails.rails.core.railsnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>public/images/tlo.jpg</name>
+			<type>1</type>
+			<location>C:/Users/jacek/Desktop/tlo.jpg</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,0 +1,18 @@
+<p>
+  <b>Nick:</b>
+  <%=h @comment.nick %>
+</p>
+
+<p>
+  <b>Tresc:</b>
+  <%=h @comment.tresc %>
+</p>
+
+<p>
+  <b>Post:</b>
+  <%=h @comment.post %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

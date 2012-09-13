@@ -1,0 +1,33 @@
+<h1>Tworzenie nowego posta</h1>
+
+<%= error_messages_for :post %>
+
+<table id="tabelaTweetow">
+
+	<% form_for(@post) do |f| %>
+  	
+	<tr>
+    	<td><b>Autor postu: </b><%= f.text_field :nick %></td>
+    </tr>
+
+ 	<tr>
+    	<td><b>Tytuł postu: </b><%= f.text_field :tytul %></td>
+  	</tr>
+
+  	<tr>
+    	<td><b>Treść:</b><br />
+    	<%= f.text_area :tresc %></td>
+  	</tr>
+
+  	<tr style="text-align: center;">
+    	<td><%= f.submit "Stwórz" %></td>
+  	</tr>
+
+	<% end %>
+
+</table>
+<br>
+
+
+<div style="text-align:center"><%= link_to 'Powrót', posts_path %></div>
+

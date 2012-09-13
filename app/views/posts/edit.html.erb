@@ -1,0 +1,32 @@
+<h1>Edytowanie postu</h1>
+
+<table id="tabelaTweetow">
+
+	<% form_for(@post) do |f| %>
+  	
+	<tr>
+    	<td><b>Autor postu: </b><%= f.text_field :nick %></td>
+    </tr>
+
+ 	<tr>
+    	<td><b>Tytuł postu: </b><%= f.text_field :tytul %></td>
+  	</tr>
+
+  	<tr>
+    	<td style="text-align: center;"><b>Treść:</b><br />
+    	<%= f.text_area :tresc %></td>
+  	</tr>
+
+  	<tr style="text-align: center;">
+    	<td><%= f.submit "Edytuj" %></td>
+  	</tr>
+
+	<% end %>
+
+</table>
+<br>
+
+
+
+<div style="text-align:center"><%= link_to 'Pokaż', @post %>
+<%= link_to 'Powrót', posts_path %></div>

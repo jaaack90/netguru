@@ -1,0 +1,30 @@
+
+<h1>Lista wszystkich postów</h1>
+
+
+<% for post in @posts %>
+
+ <table id="tabelaTweetow">
+  <tr>
+    <th style="text-align: left;"><b>autor postu:</b> <%=h post.nick %></th> 
+	<th style="text-align: right; width: 250px;"><b>utworzono</b> <%= post.created_at.strftime("%d %b. %Y<br />o godzinie %H:%M")%> </th> 
+  </tr>
+  <tr>
+    <td><b>temat postu:</b> <%=h post.tytul %></td>
+	<td style="text-align: right;">skomentowano <%=h post.comments.count%> raz(y)</td>
+  </tr>
+  <tr>
+    <td><%=h post.tresc %></td>
+    <td style="text-align: right; width: 200px;"><%= link_to 'Pokaż', post %>
+    <%= link_to 'Edytuj', edit_post_path(post) %>
+    <%= link_to 'Usuń', post, :confirm => 'Czy jesteś pewny, że chcesz usunąć tego posta?', :method => :delete %></td>
+  </tr>
+  
+</table>
+<br>  
+<% end %>	
+
+<br>
+
+<div style="width: auto; margin-left: auto; margin-right: auto; text-align:center; font-weight: bold; padding: 10px;"><%= link_to 'Stwórz nowy post', new_post_path %></div>
+

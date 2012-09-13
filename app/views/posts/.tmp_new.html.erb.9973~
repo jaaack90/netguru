@@ -1,0 +1,26 @@
+<h1>Tworzenie nowego posta</h1>
+
+<%= error_messages_for :post %>
+
+<% form_for(@post) do |f| %>
+  <p>
+    <b>Nick</b><br />
+    <%= f.text_field :nick %>
+  </p>
+
+  <p>
+    <b>Tytuł</b><br />
+    <%= f.text_field :tytul %>
+  </p>
+
+  <p>
+    <b>Treść</b><br />
+    <%= f.text_area :tresc %>
+  </p>
+
+  <p>
+    <%= f.submit "Stwórz" %>
+  </p>
+<% end %>
+
+<%= link_to 'Powrót', posts_path %>

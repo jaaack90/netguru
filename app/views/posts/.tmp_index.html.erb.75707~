@@ -1,0 +1,34 @@
+
+
+<div id="stronaGlowna">
+	
+<h1>Lista wszystkich postów</h1>
+
+
+<% for post in @posts %>
+
+ <table id="tabela">
+  <tr>
+    <th><%=h post.nick %> napisał</th> 
+	<th align = "right" width = "200px"><%= post.created_at%> </th> 
+  </tr>
+  <tr>
+    <td> na temat <%=h post.tytul %></td>
+  </tr>
+  <tr>
+    <td><%=h post.tresc %></td>
+    <td><%= link_to 'Pokaż', post %>
+    <%= link_to 'Edytuj', edit_post_path(post) %>
+    <%= link_to 'Usuń', post, :confirm => 'Czy jesteś pewny, że chcesz usunąć tego posta?', :method => :delete %></td>
+  </tr>
+  
+</table>
+  
+<% end %>	
+
+<br />
+
+<%= link_to 'Stwórz nowy post', new_post_path %>
+<br><br><br>
+</div>
+

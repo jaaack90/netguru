@@ -1,0 +1,75 @@
+<h1>Post na temat: <%=@post.tytul%></h1>
+
+<table id="tabelaTweetow">
+
+	<tr>
+		<td><b><%=@post.nick%></b> napisał <%= time_ago_in_words(@post.created_at) %> ago<br />
+		<%if @post.created_at == @post.updated_at%><em>nigdy nie modyfikowano</em>
+		<%else%><em>zmieniono: <%= time_ago_in_words(@post.updated_at)%> ago</em><%end%></td>
+	</tr>
+	<tr>
+		<td><b>Temat postu:</b> <%=@post.tytul%></td>
+	</tr>
+	<tr>
+		<td><%=@post.tresc%></td>
+	</tr>
+
+</table>
+
+
+
+<h2>Komentarze</h2>
+
+
+<% @post.comments.each do |c| %>
+
+<table id="tabelaNowy">
+	<tr>
+		<td><b><%=h c.nick %></b> skomentował: <br />
+		<%= time_ago_in_words(c.created_at) %> ago</td>
+	</tr>
+	
+	<tr>
+		<td><%= h c.tresc %> </td>
+	</tr>
+
+</table>
+<% end %>
+
+
+
+<table id="tabelaNowy">
+	<% form_for [@post, Comment.new] do |f| %>
+	
+	<tr>
+		<th style="text-align:left; font-size: 15px; font-weight: bold; ">Dodaj swój komentarz</th>
+	</tr>
+
+	<tr>
+		<td>
+			
+			<%= f.label :nick, "Autor komentarza" %>
+			<%= f.text_field :nick %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>	
+			<%= f.label :tresc, "Treść komentarza" %><br />
+			<%= f.text_area :tresc %>
+		</td>
+	</tr>	
+
+	<tr>
+		<td  style="text-align:center;">
+			<%= f.submit "Dodaj komentarz" %>
+		</td>
+	</tr>
+	
+	<% end %>
+	
+</table>
+
+<br>
+<div style=" width:auto; margin-left:auto; margin-right:auto; text-align: center;"><%= link_to 'Edytuj', edit_post_path(@post) %> 
+<%= link_to 'Powrót', posts_path %></div>
